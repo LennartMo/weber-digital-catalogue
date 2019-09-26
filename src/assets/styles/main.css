@@ -282,7 +282,7 @@ a.Spare, .cat-6 { background: #2cb5cf; background-image: url('../img/accessoires
 
 
 .subheading {
-  height: calc(100% - 5px);
+  height: 100%;
   display: block;
   padding: 20px;
   background: #2cb5cf;
@@ -291,6 +291,7 @@ a.Spare, .cat-6 { background: #2cb5cf; background-image: url('../img/accessoires
   font-size: 1.6em;
   line-height: 1;
   text-transform: uppercase;
+  word-break: break-word;
 }
 
 .subheading > div {

@@ -4,8 +4,8 @@
     <div class="page-content">
 
         <div class="related-btns">
-          <router-link v-if="product.data.prevId" :to="{ path: '/' + countryId + '/' + categoryId + '/product/' + product.data.prevId }" class="prev">&lsaquo;</router-link>
-          <router-link v-if="product.data.nextId" :to="{ path: '/' + countryId + '/' + categoryId + '/product/' + product.data.nextId }" class="next">&rsaquo;</router-link>
+          <router-link v-if="product.data.prevId" :to="{ path: '/' + countryId + '/' + categoryId + '/accessory/' + product.data.prevId }" class="prev">&lsaquo;</router-link>
+          <router-link v-if="product.data.nextId" :to="{ path: '/' + countryId + '/' + categoryId + '/accessory/' + product.data.nextId }" class="next">&rsaquo;</router-link>
         </div>
 
         <div class="product-wrapper">

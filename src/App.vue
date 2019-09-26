@@ -17,10 +17,17 @@
           </div>
           <div class="search-results" v-if="filterSearchs">
             <ul>
-                <li v-if="item.product.product_title_line_1" v-for="item in filterSearchs.data" @click="search">
-                  <router-link :to="{ path: '/5/0/product/' + item.id }"  class="products-overview-single">
-                    {{ item.product.product_title_line_1['value'] }} &#187;
-                  </router-link> 
+                <li v-for="item in filterSearchs.data" @click="search">
+                  <span v-if="item.product.product_title_line_1">
+                    <router-link :to="{ path: '/5/0/product/' + item.id }"  class="products-overview-single">
+                      {{ item.product.product_title_line_1['value'] }} &#187;
+                    </router-link> 
+                  </span>
+                  <span v-if="item.product.product_title_line_1_accessories">
+                    <router-link :to="{ path: '/5/0/product/' + item.id }"  class="products-overview-single">
+                      {{ item.product.product_title_line_1_accessories['value'] }} - {{ item.product.product_title_line_2_accessories['value'] }} &#187;
+                    </router-link> 
+                  </span>
                 </li>
             </ul>
           </div>

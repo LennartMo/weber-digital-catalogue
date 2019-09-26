@@ -47,16 +47,16 @@
             <div class="product-info">
               <h2>{{ product.data.product.product_information['label'] }}</h2>
               <p><img :src="'https://onlinedatabasetool.com/template-assets/img/iconen/' + product.data.product.barbecue_icon['value'].toLowerCase() + '_icon.png'" width="14"><strong>{{ product.data.product.type_barbecue['value'] }}</strong> <br>
-              <img :src="'https://onlinedatabasetool.com/template-assets/img/iconen/' + product.data.product.grate_shape['value'].toLowerCase() + '_icon.png'" width="14"><strong>{{ product.data.product.product_grate_metric['label'] }}: </strong> {{ product.data.product.product_grate_metric['value'] }} <br>
-              <img :src="'https://onlinedatabasetool.com/template-assets/img/iconen/' + product.data.product.product_color_icon['value'] + '_icon.png'" width="14"><strong>Colour:</strong> {{ product.data.product.product_color['value'] }}</p>
+              <img :src="'https://onlinedatabasetool.com/template-assets/img/iconen/' + product.data.product.grate_shape['value'].toLowerCase() + '_icon.png'" width="14"><strong>{{ product.data.product.product_grate_metric['label'] }} </strong> {{ product.data.product.product_grate_metric['value'] }} <br>
+              <img :src="'https://onlinedatabasetool.com/template-assets/img/iconen/' + product.data.product.product_color_icon['value'] + '_icon.png'" width="14"><strong>{{ product.data.product.product_color_icon['label'] }}</strong> {{ product.data.product.product_color['value'] }}</p>
             </div>
             
             <div class="dimensions">
-              <h2>{{ product.data.product.product_dimensions['label'] }} <span>HxWxD</span></h2>
-              <p><strong>{{ product.data.product.product_size_metric_closed_lid['label'] }}</strong> {{ product.data.product.product_size_metric_closed_lid['value'] }} <br>
-              <strong>{{ product.data.product.weight_metric['label'] }}</strong> {{ product.data.product.weight_metric['value'] }} <br>
-              <strong>{{ product.data.product.packaging_size_metric['label'] }}</strong> {{ product.data.product.packaging_size_metric['value'] }} <br>
-              <strong>{{ product.data.product.packaging_weight_metric['label'] }}</strong> {{ product.data.product.packaging_weight_metric['value'] }}</p>
+              <h2>{{ product.data.product.product_dimensions['label'] }} <span>{{ product.data.product.product_dimensions_regular['label'] }}</span></h2>
+              <p><span v-if="product.data.product.product_size_metric_closed_lid['label']"><strong>{{ product.data.product.product_size_metric_closed_lid['label'] }}</strong> {{ product.data.product.product_size_metric_closed_lid['value'] }} <br></span>
+              <span v-if="product.data.product.weight_metric['label']"><strong>{{ product.data.product.weight_metric['label'] }}</strong> {{ product.data.product.weight_metric['value'] }} <br></span>
+              <span v-if="product.data.product.packaging_size_metric['label']"><strong>{{ product.data.product.packaging_size_metric['label'] }}</strong> {{ product.data.product.packaging_size_metric['value'] }} <br></span>
+              <span v-if="product.data.product.packaging_weight_metric['label']"><strong>{{ product.data.product.packaging_weight_metric['label'] }}</strong> {{ product.data.product.packaging_weight_metric['value'] }}</span></p>
             </div>
 
             <div class="article-number">
@@ -65,9 +65,9 @@
             </div>
 
             <div class="meta">
-              <p><strong>{{ product.data.product.amount_packaging['label'] }}</strong> {{ product.data.product.amount_packaging['value'] }} <br>
-              <strong>{{ product.data.product.amount_per_pallet['label'] }}</strong> {{ product.data.product.amount_per_pallet['value'] }} <br>             
-              <strong>{{ product.data.product.suggested_retail_price_1['label'] }}</strong> {{ product.data.product.suggested_retail_price_1['value'] }}</p>
+              <p><span v-if="product.data.product.amount_packaging['label']"><strong>{{ product.data.product.amount_packaging['label'] }}</strong> {{ product.data.product.amount_packaging['value'] }} <br></span>
+              <span v-if="product.data.product.amount_per_pallet['label']"><strong>{{ product.data.product.amount_per_pallet['label'] }}</strong> {{ product.data.product.amount_per_pallet['value'] }} <br></span>             
+              <span v-if="product.data.product.suggested_retail_price_1['label']"><strong>{{ product.data.product.suggested_retail_price_1['label'] }}</strong> {{ product.data.product.suggested_retail_price_1['value'] }}</span></p>
             </div>
 
           </div>
@@ -140,7 +140,6 @@ export default {
       axios
         .get('https://www.onlinedatabasetool.com/api/catalogline/' + this.$route.params.id)
         .then(response => (this.product = response))
-        console.log(this.$route.params.id)
     }
   }
 }
