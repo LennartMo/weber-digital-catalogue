@@ -23,7 +23,6 @@
               <img :src="'https://onlinedatabasetool.com/template-assets/img/accessoires/' + product.data.product.article_number_1['value'] + '.jpg'" class="product-img">
             </div>
        
-            
             <div class="article-number">
               <p><strong>{{ product.data.product.article_number_1['label'] }}</strong></p>
               <img :src="'https://onlinedatabasetool.com/template-assets/img/barcodes/' + product.data.product.barcode_number_1['value'] + '.png'" alt="">

@@ -7,7 +7,7 @@
         <router-link :to="{ path: '/' + countryId + '/' + categoryId + '/product/' + item.id }" class="products-overview-single" v-for="item in products.data">
           <img :src="'https://onlinedatabasetool.com/template-assets/img/barbecues/' + item.product.barbecue_code['value'] + '.jpg'">
           <div class="product-single-text">
-            {{ item.product.product_title_line_1['value'] }}
+            {{ item.product.product_title_line_1['value'] }} - {{ item.product.product_title_line_2['value'] }} <span v-if="item.product.product_title_line_3['value']">- {{ item.product.product_title_line_3['value'] }}</span>
           </div>
         </router-link>
       </div>

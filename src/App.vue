@@ -20,12 +20,12 @@
                 <li v-for="item in filterSearchs.data" @click="search">
                   <span v-if="item.product.product_title_line_1">
                     <router-link :to="{ path: '/5/0/product/' + item.id }"  class="products-overview-single">
-                      {{ item.product.product_title_line_1['value'] }} &#187;
+                      {{ item.product.product_title_line_1['value'] }} - {{ item.product.product_title_line_2['value'] }} - {{ item.product.product_title_line_3['value'] }} &#187;
                     </router-link> 
                   </span>
                   <span v-if="item.product.product_title_line_1_accessories">
                     <router-link :to="{ path: '/5/0/product/' + item.id }"  class="products-overview-single">
-                      {{ item.product.product_title_line_1_accessories['value'] }} - {{ item.product.product_title_line_2_accessories['value'] }} &#187;
+                      {{ item.product.product_title_line_1_accessories['value'] }} <span v-if="item.product.product_title_line_2_accessories">- {{ item.product.product_title_line_2_accessories['value'] }}</span> &#187;
                     </router-link> 
                   </span>
                 </li>
