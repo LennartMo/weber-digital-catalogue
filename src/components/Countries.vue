@@ -4,7 +4,7 @@
       <div class="cat-overview">
         <h1>Countries</h1>
         <div class="cat-overview-links">
-          <router-link  v-for="item in countries.data" :to="{ path: item.id + '/catalogue/' }">{{ item.name }}</router-link>
+          <router-link v-for="item in countries.data" :to="{ path: item.code }">{{ item.name }}</router-link>
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@ export default {
   },
   mounted () {
     axios
-      .get('https://www.onlinedatabasetool.com/api/countries')
+      .get('https://api.onlinedatabasetool.com/api/countries')
       .then(response => (this.countries = response))
   }
 }

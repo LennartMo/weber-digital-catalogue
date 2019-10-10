@@ -7,7 +7,7 @@
         <h1>Barbecues</h1>
         <div v-for="item in categories.data" class="cat-overview-links">
           <div v-if="item.isBarbecueCategory" v-on:click="say(item.label)">
-            <router-link :to="{ path: '/' + countryId + '/products/' + item.id + '/' + catalogType }" :class="item.code">{{ item.label }}</router-link>
+            <router-link :to="{ path: '/' + countryCode + '/' + catalogType + '/barbecues/' + categoryName(item.id) }" :class="item.code">{{ item.label }}</router-link>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
 
         <div v-for="item in categories.data" class="cat-overview-links">
            <div v-if="item.isBarbecueCategory === false" v-on:click="say(item.label)">
-            <router-link :to="{ path: '/' + countryId + '/accessories/' + item.id + '/' + catalogType }" :class="item.code">{{ item.label }}</router-link>
+            <router-link :to="{ path: '/' + countryCode + '/' + catalogType + '/acc/' + categoryName(item.id) }" :class="item.code">{{ item.label }}</router-link>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@ export default {
   },
   data () {
     return {
-      countryId: this.$route.params.countryId,
+      countryCode: this.$route.params.countryCode,
       catalogType: this.$route.params.catalogType,
       categories: []
     }
@@ -56,17 +56,51 @@ export default {
   created () {
     this.$parent.showHeader = true;
   },
-  /*computed: {
-    barbecueCategories: function() {
-      return this.categories.filter(function(u) {
-        return u.isBarbecueCategory
-      })
+  methods: {
+    categoryName(categoryId) {
+      if(categoryId == 1){ return 'charcoal' }
+      else if(categoryId == 2){ return 'wood' }
+      else if(categoryId == 3){ return 'gas' }
+      else if(categoryId == 4){ return 'electric' }
+      else if(categoryId == 5){ return 'accessories' }
+      else if(categoryId == 6){ return 'spareparts' }
+      else if(categoryId == 7){ return 'mobile' }
     }
-  },*/
+  },
+  computed: {
+    countryId: function () {
+      if(this.$route.params.countryCode == 'FR'){ return 1 }
+      else if(this.$route.params.countryCode == 'IT'){ return 2 }
+      else if(this.$route.params.countryCode == 'ES'){ return 3 }
+      else if(this.$route.params.countryCode == 'PT'){ return 4 }
+      else if(this.$route.params.countryCode == 'NL'){ return 5 }
+      else if(this.$route.params.countryCode == 'BEFR'){ return 6 }
+      else if(this.$route.params.countryCode == 'DEAT'){ return 7 }
+      else if(this.$route.params.countryCode == 'CHDE'){ return 8 }
+      else if(this.$route.params.countryCode == 'CHFR'){ return 9 }
+      else if(this.$route.params.countryCode == 'CZ'){ return 10 }
+      else if(this.$route.params.countryCode == 'PL'){ return 11 }
+      else if(this.$route.params.countryCode == 'UK'){ return 12 }
+      else if(this.$route.params.countryCode == 'SE'){ return 13 }
+      else if(this.$route.params.countryCode == 'FI'){ return 14 }
+      else if(this.$route.params.countryCode == 'NO'){ return 15 }
+      else if(this.$route.params.countryCode == 'DK'){ return 16 }
+      else if(this.$route.params.countryCode == 'IE'){ return 17 }
+      else if(this.$route.params.countryCode == 'CP'){ return 18 }
+      else if(this.$route.params.countryCode == 'EM'){ return 19 }
+      else if(this.$route.params.countryCode == 'DEWO'){ return 20 }
+      else if(this.$route.params.countryCode == 'MM'){ return 21 }
+      else if(this.$route.params.countryCode == 'BENL'){ return 22 }
+    },
+    catalogTypeNum: function () {
+      if(this.$route.params.catalogType == 'partner'){ return 0 }
+      else if(this.$route.params.catalogType == 'premium'){ return 1 }
+    }
+  },
   mounted () {
     console.log(this.$route.params.countryId)
     axios
-      .get('https://www.onlinedatabasetool.com/api/categoriesincountry/' + this.$route.params.countryId + '/' + this.$route.params.catalogType)
+      .get('https://api.onlinedatabasetool.com/api/categoriesincountry/' + this.countryId + '/' + this.catalogTypeNum)
       .then(response => (this.categories = response))
   }
 }

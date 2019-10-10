@@ -252,12 +252,12 @@ a.icon_search:hover path {
   box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.6);
 }
 
-a.Wood, .cat-2 { color: #fff; background: #9f6854; background-image: url('../img/wood_icon.svg'); }
-a.Charcoal, .cat-1 { color: #fff; background: #006b7d; background-image: url('../img/charcoal_icon.svg'); }
-a.Gas, .cat-3 { background: #f7b100; background-image: url('../img/gas_icon.svg'); }
-a.Electric, .cat-4 { background: #e5dc00; background-image: url('../img/electro_icon.svg'); }
-a.Accessories, .cat-5 { background: #f4eed5; background-image: url('../img/accessoires_icon.svg'); }
-a.Spare, .cat-6 { background: #2cb5cf; background-image: url('../img/accessoires_icon.svg'); }
+a.Wood, .cat-wood, .Wood { color: #fff; background: #9f6854; background-image: url('../img/wood_icon.svg'); }
+a.Charcoal, .cat-charcoal, .Charcoal { color: #fff; background: #006b7d; background-image: url('../img/charcoal_icon.svg'); }
+a.Gas, .cat-gas, .Gas { background: #f7b100; background-image: url('../img/gas_icon.svg'); }
+a.Electric, .cat-electric, .Electric { background: #e5dc00; background-image: url('../img/electro_icon.svg'); }
+a.Accessories, .cat-accessories, .Accessories { background: #f4eed5; background-image: url('../img/accessoires_icon.svg'); }
+a.Spare, .cat-spareparts, .Spareparts { background: #2cb5cf; background-image: url('../img/accessoires_icon.svg'); }
 
 /*
 * PRODUCTS OVERVIEW

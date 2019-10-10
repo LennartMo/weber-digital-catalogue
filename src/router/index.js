@@ -19,37 +19,37 @@ const router = new VueRouter({
       component: Countries
     },
     {
-      path: '/:countryId/catalogue/',
+      path: '/:countryCode/',
       name: 'Catalogue',
       props: true,
       component: Catalogue
     },
     {
-      path: '/:countryId/:catalogType/categories/',
+      path: '/:countryCode/:catalogType/',
       name: 'Categories',
       props: true,
       component: Categories
     },
     {
-      path: '/:countryId/products/:categoryId/:catalogType/',
+      path: '/:countryCode/:catalogType/barbecues/:categoryName/',
       name: 'Products',
       props: true,
       component: Products
     },
     {
-      path: '/:countryId/accessories/:categoryId/:catalogType/',
+      path: '/:countryCode/:catalogType/acc/:categoryName/',
       name: 'Accessories',
       props: true,
       component: Accessories
     },
     {
-      path: '/:countryId/:categoryId/product/:id',
+      path: '/:countryCode/:catalogType/barbecues/:categoryName/:id/',
       name: 'Product',
       props: true,
       component: Product
     },
     {
-      path: '/:countryId/:categoryId/accessory/:id',
+      path: '/:countryCode/:catalogType/acc/:categoryName/:id/',
       name: 'Accessory',
       props: true,
       component: Accessory

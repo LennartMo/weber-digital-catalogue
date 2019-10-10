@@ -1,11 +1,11 @@
 <template>
   <section class="content">
-    <div class="header-cat" v-bind:class="categoryClass">{{ product.data.category.label }}</div>
+    <div class="header-cat" v-bind:class="product.data.category.code">{{ product.data.category.label }}</div>
     <div class="page-content">
 
         <div class="related-btns">
-          <router-link v-if="product.data.prevId" :to="{ path: '/' + countryId + '/' + categoryId + '/accessory/' + product.data.prevId }" class="prev">&lsaquo;</router-link>
-          <router-link v-if="product.data.nextId" :to="{ path: '/' + countryId + '/' + categoryId + '/accessory/' + product.data.nextId }" class="next">&rsaquo;</router-link>
+          <router-link v-if="product.data.prevId" :to="{ path: '/' + countryCode + '/' + catalogType + '/acc/' + categoryName + '/' + product.data.prevId }" class="prev">&lsaquo;</router-link>
+          <router-link v-if="product.data.nextId" :to="{ path: '/' + countryCode + '/' + catalogType + '/acc/' + categoryName + '/' + product.data.nextId }" class="next">&rsaquo;</router-link>
         </div>
 
         <div class="product-wrapper">
@@ -53,10 +53,11 @@ export default {
   },
   data () {
     return {
-      countryId: this.$route.params.countryId,
-      categoryId: this.$route.params.categoryId,
       id: this.$route.params.id,
-      categoryClass: 'cat-' + this.$route.params.categoryId,
+      categoryClass: 'cat-' + this.$route.params.categoryName,
+      countryCode: this.$route.params.countryCode,
+      catalogType: this.$route.params.catalogType,
+      categoryName: this.$route.params.categoryName,
       color: null,
       product: null
     }
@@ -65,30 +66,42 @@ export default {
     this.$parent.showHeader = true;
   },
   computed: {
-    countryCode: function () {
-      if(this.$route.params.countryId == 1){ return 'FR' }
-      else if(this.$route.params.countryId == 2){ return 'IT' }
-      else if(this.$route.params.countryId == 3){ return 'ES' }
-      else if(this.$route.params.countryId == 4){ return 'PT' }
-      else if(this.$route.params.countryId == 5){ return 'NL' }
-      else if(this.$route.params.countryId == 6){ return 'BEFR' }
-      else if(this.$route.params.countryId == 7){ return 'DEAT' }
-      else if(this.$route.params.countryId == 8){ return 'CHDE' }
-      else if(this.$route.params.countryId == 9){ return 'CHFR' }
-      else if(this.$route.params.countryId == 10){ return 'CZ' }
-      else if(this.$route.params.countryId == 11){ return 'PL' }
-      else if(this.$route.params.countryId == 12){ return 'UK' }
-      else if(this.$route.params.countryId == 13){ return 'SE' }
-      else if(this.$route.params.countryId == 14){ return 'FI' }
-      else if(this.$route.params.countryId == 15){ return 'NO' }
-      else if(this.$route.params.countryId == 16){ return 'DK' }
-      else if(this.$route.params.countryId == 17){ return 'IE' }
-      else if(this.$route.params.countryId == 18){ return 'CP' }
-      else if(this.$route.params.countryId == 19){ return 'EM' }
-      else if(this.$route.params.countryId == 20){ return 'DEWO' }
-      else if(this.$route.params.countryId == 21){ return 'MM' }
-      else if(this.$route.params.countryId == 22){ return 'BENL' }
-
+    countryId: function () {
+      if(this.$route.params.countryCode == 'FR'){ return 1 }
+      else if(this.$route.params.countryCode == 'IT'){ return 2 }
+      else if(this.$route.params.countryCode == 'ES'){ return 3 }
+      else if(this.$route.params.countryCode == 'PT'){ return 4 }
+      else if(this.$route.params.countryCode == 'NL'){ return 5 }
+      else if(this.$route.params.countryCode == 'BEFR'){ return 6 }
+      else if(this.$route.params.countryCode == 'DEAT'){ return 7 }
+      else if(this.$route.params.countryCode == 'CHDE'){ return 8 }
+      else if(this.$route.params.countryCode == 'CHFR'){ return 9 }
+      else if(this.$route.params.countryCode == 'CZ'){ return 10 }
+      else if(this.$route.params.countryCode == 'PL'){ return 11 }
+      else if(this.$route.params.countryCode == 'UK'){ return 12 }
+      else if(this.$route.params.countryCode == 'SE'){ return 13 }
+      else if(this.$route.params.countryCode == 'FI'){ return 14 }
+      else if(this.$route.params.countryCode == 'NO'){ return 15 }
+      else if(this.$route.params.countryCode == 'DK'){ return 16 }
+      else if(this.$route.params.countryCode == 'IE'){ return 17 }
+      else if(this.$route.params.countryCode == 'CP'){ return 18 }
+      else if(this.$route.params.countryCode == 'EM'){ return 19 }
+      else if(this.$route.params.countryCode == 'DEWO'){ return 20 }
+      else if(this.$route.params.countryCode == 'MM'){ return 21 }
+      else if(this.$route.params.countryCode == 'BENL'){ return 22 }
+    },
+    catalogTypeNum: function () {
+      if(this.$route.params.catalogType == 'partner'){ return 0 }
+      else if(this.$route.params.catalogType == 'premium'){ return 1 }
+    },
+    categoryId: function () {
+      if(this.$route.params.categoryName == 'charcoal'){ return 1 }
+      else if(this.$route.params.categoryName == 'wood'){ return 2 }
+      else if(this.$route.params.categoryName == 'gas'){ return 3 }
+      else if(this.$route.params.categoryName == 'electric'){ return 4 }
+      else if(this.$route.params.categoryName == 'accessories'){ return 5 }
+      else if(this.$route.params.categoryName == 'spareparts'){ return 6 }
+      else if(this.$route.params.categoryName == 'mobile'){ return 7 }
     }
   },
   updated() {
@@ -96,13 +109,13 @@ export default {
   },
   mounted () {
     axios
-      .get('https://www.onlinedatabasetool.com/api/catalogline/' + this.$route.params.id)
+      .get('https://api.onlinedatabasetool.com/api/catalogline/' + this.$route.params.id)
       .then(response => (this.product = response))
   },
   watch: {
     '$route': function() {
       axios
-        .get('https://www.onlinedatabasetool.com/api/catalogline/' + this.$route.params.id)
+        .get('https://api.onlinedatabasetool.com/api/catalogline/' + this.$route.params.id)
         .then(response => (this.product = response))
         console.log(this.$route.params.id)
     }

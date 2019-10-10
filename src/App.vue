@@ -19,12 +19,12 @@
             <ul>
                 <li v-for="item in filterSearchs.data" @click="search">
                   <span v-if="item.product.product_title_line_1">
-                    <router-link :to="{ path: '/5/0/product/' + item.id }"  class="products-overview-single">
+                    <router-link :to="{ path: '/' + countryCode + '/catalog/barbecues/all/' + item.id }"  class="products-overview-single">
                       {{ item.product.product_title_line_1['value'] }} - {{ item.product.product_title_line_2['value'] }} - {{ item.product.product_title_line_3['value'] }} &#187;
                     </router-link> 
                   </span>
                   <span v-if="item.product.product_title_line_1_accessories">
-                    <router-link :to="{ path: '/5/0/product/' + item.id }"  class="products-overview-single">
+                    <router-link :to="{ path: '/' + countryCode + '/catalog/acc/all/' + item.id }"  class="products-overview-single">
                       {{ item.product.product_title_line_1_accessories['value'] }} <span v-if="item.product.product_title_line_2_accessories">- {{ item.product.product_title_line_2_accessories['value'] }}</span> &#187;
                     </router-link> 
                   </span>
@@ -53,14 +53,42 @@ export default {
     return {
       loading: false,
       filterSearchs: null,
-      showHeader: false,
-      countryId: this.$route.params.countryId
+      showHeader: false
+    }
+  },
+  computed: {
+    countryCode: function () {
+      return this.$route.params.countryCode
+    },
+    countryId: function () {
+      if(this.$route.params.countryCode == 'FR'){ return 1 }
+      else if(this.$route.params.countryCode == 'IT'){ return 2 }
+      else if(this.$route.params.countryCode == 'ES'){ return 3 }
+      else if(this.$route.params.countryCode == 'PT'){ return 4 }
+      else if(this.$route.params.countryCode == 'NL'){ return 5 }
+      else if(this.$route.params.countryCode == 'BEFR'){ return 6 }
+      else if(this.$route.params.countryCode == 'DEAT'){ return 7 }
+      else if(this.$route.params.countryCode == 'CHDE'){ return 8 }
+      else if(this.$route.params.countryCode == 'CHFR'){ return 9 }
+      else if(this.$route.params.countryCode == 'CZ'){ return 10 }
+      else if(this.$route.params.countryCode == 'PL'){ return 11 }
+      else if(this.$route.params.countryCode == 'UK'){ return 12 }
+      else if(this.$route.params.countryCode == 'SE'){ return 13 }
+      else if(this.$route.params.countryCode == 'FI'){ return 14 }
+      else if(this.$route.params.countryCode == 'NO'){ return 15 }
+      else if(this.$route.params.countryCode == 'DK'){ return 16 }
+      else if(this.$route.params.countryCode == 'IE'){ return 17 }
+      else if(this.$route.params.countryCode == 'CP'){ return 18 }
+      else if(this.$route.params.countryCode == 'EM'){ return 19 }
+      else if(this.$route.params.countryCode == 'DEWO'){ return 20 }
+      else if(this.$route.params.countryCode == 'MM'){ return 21 }
+      else if(this.$route.params.countryCode == 'BENL'){ return 22 }
     }
   },
   methods: {
     checkForm: function (e) {
       axios
-        .get('https://onlinedatabasetool.com/api/cataloglinessearch/'+this.$route.params.countryId+'/'+this.s)
+        .get('https://api.onlinedatabasetool.com/api/cataloglinessearch/'+this.countryId+'/'+this.s)
         .then(response => (this.filterSearchs = response))
     },
     back () {
