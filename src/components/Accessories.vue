@@ -2,7 +2,6 @@
   <section class="content">
     <div class="header-cat" v-bind:class="categoryClass" v-if="products.data[1].category">{{ products.data[1].category.label }}</div>
     <div class="page-content">
-      
       <div class="products-overview">
         <div v-for="item in products.data">
           <div class="subheading" v-if="item.type === 'SUBHEADING'">
