@@ -48,7 +48,7 @@ export default {
       else if(this.$route.params.countryCode == 'DK'){ return 16 }
       else if(this.$route.params.countryCode == 'IE'){ return 17 }
       else if(this.$route.params.countryCode == 'CP'){ return 18 }
-      else if(this.$route.params.countryCode == 'EM'){ return 19 }
+      else if(this.$route.params.countryCode == 'OM'){ return 19 }
       else if(this.$route.params.countryCode == 'DEWO'){ return 20 }
       else if(this.$route.params.countryCode == 'MM'){ return 21 }
       else if(this.$route.params.countryCode == 'BENL'){ return 22 }

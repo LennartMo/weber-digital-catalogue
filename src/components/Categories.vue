@@ -4,7 +4,8 @@
 
     
       <div class="cat-overview">
-        <h1>Barbecues</h1>
+        <h1 v-if="countryCode === 'DEAT'">Grills</h1>
+        <h1 v-else>Barbecues</h1>
         <div v-for="item in categories.data" class="cat-overview-links">
           <div v-if="item.isBarbecueCategory" v-on:click="say(item.label)">
             <router-link :to="{ path: '/' + countryCode + '/' + catalogType + '/barbecues/' + categoryName(item.id) }" :class="item.code">{{ item.label }}</router-link>
@@ -24,10 +25,12 @@
         </div>
       </div>
       <div class="cat-overview">
-        <h1>Practical content</h1>
+        <h1 v-if="countryCode === 'DEAT'">Inhalt/neuheiten</h1>
+        <h1 v-else>Practical content</h1>
         <div class="cat-overview-links">
            <div>
-            <a v-bind:href="'/pdf/' + countryId + '/' + countryId + '-' + catalogType + '.pdf'" target="_blank">Link</a>
+            <a v-if="countryCode === 'DEAT'" v-bind:href="'/pdf/' + countryId + '/' + countryId + '-' + catalogTypeNum + '.pdf'" target="_blank">Zusätzliche produktinformationen</a>
+            <a v-else v-bind:href="'/pdf/' + countryId + '/' + countryId + '-' + catalogTypeNum + '.pdf'" target="_blank">Download PDF</a>
           </div>
         </div>
       </div>
@@ -87,7 +90,7 @@ export default {
       else if(this.$route.params.countryCode == 'DK'){ return 16 }
       else if(this.$route.params.countryCode == 'IE'){ return 17 }
       else if(this.$route.params.countryCode == 'CP'){ return 18 }
-      else if(this.$route.params.countryCode == 'EM'){ return 19 }
+      else if(this.$route.params.countryCode == 'OM'){ return 19 }
       else if(this.$route.params.countryCode == 'DEWO'){ return 20 }
       else if(this.$route.params.countryCode == 'MM'){ return 21 }
       else if(this.$route.params.countryCode == 'BENL'){ return 22 }

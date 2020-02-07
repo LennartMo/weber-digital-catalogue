@@ -1,4 +1,4 @@
-<template>
+ <template>
   <section class="content">
     <div class="header-cat" v-bind:class="product.data.category.code">{{ product.data.category.label }}</div>
     <div class="page-content">
@@ -60,14 +60,21 @@
             </div>
 
             <div class="article-number">
-              <p><strong>{{ product.data.product.article_number_1['label'] }}</strong></p>
+               <p><strong>{{ product.data.product.article_number_1['label'] }}</strong> {{ product.data.product.article_number_1['value'] }}</p>
               <img :src="'https://onlinedatabasetool.com/template-assets/img/barcodes/' + product.data.product.barcode_number_1['value'] + '.png'" alt="">
             </div>
 
             <div class="meta">
               <p><span v-if="product.data.product.amount_packaging['label']"><strong>{{ product.data.product.amount_packaging['label'] }}</strong> {{ product.data.product.amount_packaging['value'] }} <br></span>
-              <span v-if="product.data.product.amount_per_pallet['label']"><strong>{{ product.data.product.amount_per_pallet['label'] }}</strong> {{ product.data.product.amount_per_pallet['value'] }} <br></span>             
-              <span v-if="product.data.product.suggested_retail_price_1['label']"><strong>{{ product.data.product.suggested_retail_price_1['label'] }}</strong> {{ product.data.product.suggested_retail_price_1['value'] }}</span></p>
+              <span v-if="product.data.product.amount_per_pallet['label']"><strong>{{ product.data.product.amount_per_pallet['label'] }}</strong> {{ product.data.product.amount_per_pallet['value'] }} <br></span>
+              <span v-if="countryCode === 'DEAT'"><span v-if="product.data.product.suggested_retail_price_1['label']"><strong>{{ product.data.product.suggested_retail_price_1['label'] }}</strong> {{ product.data.product.suggested_retail_price_1['value'] }}</span><br></span>
+              <span v-if="countryCode === 'DEAT'"><span v-if="product.data.product.suggested_retail_price_2['label']"><strong>{{ product.data.product.suggested_retail_price_2['label'] }}</strong> {{ product.data.product.suggested_retail_price_2['value'] }}</span></span></p>
+            </div>
+
+            <div v-if="countryCode === 'DEAT'" class="legal">
+              <p><span v-if="product.data.product.product_legal_text_warranty['value']">{{ product.data.product.product_legal_text_warranty['value'] }}<br></span>
+              <span v-if="product.data.product.product_legal_text_general['value']">{{ product.data.product.product_legal_text_general['value'] }}<br></span>
+              <span v-if="product.data.product.product_legal_text_details_not_final['value']">{{ product.data.product.product_legal_text_details_not_final['value'] }}</span></p>
             </div>
 
           </div>
@@ -121,7 +128,7 @@ export default {
       else if(this.$route.params.countryCode == 'DK'){ return 16 }
       else if(this.$route.params.countryCode == 'IE'){ return 17 }
       else if(this.$route.params.countryCode == 'CP'){ return 18 }
-      else if(this.$route.params.countryCode == 'EM'){ return 19 }
+      else if(this.$route.params.countryCode == 'OM'){ return 19 }
       else if(this.$route.params.countryCode == 'DEWO'){ return 20 }
       else if(this.$route.params.countryCode == 'MM'){ return 21 }
       else if(this.$route.params.countryCode == 'BENL'){ return 22 }

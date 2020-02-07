@@ -4,7 +4,7 @@
     <div class="page-content">
       <div class="products-overview">
         <div v-for="item in products.data">
-          <div class="subheading" v-if="item.type === 'SUBHEADING'">
+          <div class="subheading" v-bind:class="subheadingClass" v-if="item.type === 'SUBHEADING'">
             <div><strong>{{ item.subheading['title'] }}</strong></div>
             {{ item.subheading['content'] }}
           </div>
@@ -34,6 +34,7 @@ export default {
   data () {
     return {
       categoryClass: 'cat-' + this.$route.params.categoryName,
+      subheadingClass: 'subheading-cat-' + this.$route.params.categoryName,
       countryCode: this.$route.params.countryCode,
       catalogType: this.$route.params.catalogType,
       categoryName: this.$route.params.categoryName,
@@ -63,7 +64,7 @@ export default {
       else if(this.$route.params.countryCode == 'DK'){ return 16 }
       else if(this.$route.params.countryCode == 'IE'){ return 17 }
       else if(this.$route.params.countryCode == 'CP'){ return 18 }
-      else if(this.$route.params.countryCode == 'EM'){ return 19 }
+      else if(this.$route.params.countryCode == 'OM'){ return 19 }
       else if(this.$route.params.countryCode == 'DEWO'){ return 20 }
       else if(this.$route.params.countryCode == 'MM'){ return 21 }
       else if(this.$route.params.countryCode == 'BENL'){ return 22 }

@@ -294,6 +294,10 @@ a.Spare, .cat-spareparts, .Spareparts { background: #2cb5cf; background-image: u
   word-break: break-word;
 }
 
+.subheading-cat-accessories {
+  background: #f4eed5;
+}
+
 .subheading > div {
   margin-bottom: 5px;
   
@@ -516,6 +520,10 @@ a.products-overview-single > img {
 
 .meta > p {
   line-height: 1.8em;
+}
+
+.legal {
+  border-top: solid 1px #000;
 }
 
 

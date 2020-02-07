@@ -4,7 +4,7 @@
       <div class="cat-overview">
         <h1>Countries</h1>
         <div class="cat-overview-links">
-          <router-link v-for="item in countries.data" v-if="item.code !== 'CP' && item.code !== 'DEWO'" :to="{ path: item.code }">{{ item.name }}</router-link>
+          <router-link v-for="item in countries.data" v-if="item.code !== 'CP' && item.code !== 'DEWO' && item.code !== 'MM'" :to="{ path: item.code }">{{ item.name }}</router-link>
         </div>
       </div>
     </div>

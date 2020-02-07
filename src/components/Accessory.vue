@@ -24,14 +24,18 @@
             </div>
        
             <div class="article-number">
-              <p><strong>{{ product.data.product.article_number_1['label'] }}</strong></p>
+              <p><strong>{{ product.data.product.article_number_1['label'] }}</strong> {{ product.data.product.article_number_1['value'] }}</p>
               <img :src="'https://onlinedatabasetool.com/template-assets/img/barcodes/' + product.data.product.barcode_number_1['value'] + '.png'" alt="">
             </div>
 
             <div class="meta">
-              <p><strong>{{ product.data.product.article_number_1['label'] }}</strong> {{ product.data.product.article_number_1['value'] }} <br>     
-              <strong>{{ product.data.product.amount_packaging['label'] }}</strong> {{ product.data.product.amount_packaging['value'] }} <br>
-              <strong>{{ product.data.product.suggested_retail_price_1['label'] }}</strong> {{ product.data.product.suggested_retail_price_1['value'] }}</p>
+              <p><strong>{{ product.data.product.amount_packaging['label'] }}</strong> {{ product.data.product.amount_packaging['value'] }}<br>
+              <span v-if="countryCode === 'DEAT'"><span v-if="product.data.product.suggested_retail_price_1['label']"><strong>{{ product.data.product.suggested_retail_price_1['label'] }}</strong> {{ product.data.product.suggested_retail_price_1['value'] }}</span><br></span>
+              <span v-if="countryCode === 'DEAT'"><span v-if="product.data.product.suggested_retail_price_2['label']"><strong>{{ product.data.product.suggested_retail_price_2['label'] }}</strong> {{ product.data.product.suggested_retail_price_2['value'] }}</span></span></p>
+            </div>
+
+            <div v-if="countryCode === 'DEAT'" class="legal">
+              <p v-if="product.data.product.product_legal_text_warranty['value']">{{ product.data.product.product_legal_text_warranty['value'] }}</p>
             </div>
            
           </div>
@@ -85,7 +89,7 @@ export default {
       else if(this.$route.params.countryCode == 'DK'){ return 16 }
       else if(this.$route.params.countryCode == 'IE'){ return 17 }
       else if(this.$route.params.countryCode == 'CP'){ return 18 }
-      else if(this.$route.params.countryCode == 'EM'){ return 19 }
+      else if(this.$route.params.countryCode == 'OM'){ return 19 }
       else if(this.$route.params.countryCode == 'DEWO'){ return 20 }
       else if(this.$route.params.countryCode == 'MM'){ return 21 }
       else if(this.$route.params.countryCode == 'BENL'){ return 22 }
