@@ -284,14 +284,21 @@ a.Spare, .cat-spareparts, .Spareparts { background: #2cb5cf; background-image: u
 .subheading {
   height: 100%;
   display: block;
-  padding: 20px;
+  padding: 10px;
   background: #2cb5cf;
   
   text-align: left;
-  font-size: 1.6em;
+  font-size: 1.2em;
   line-height: 1;
   text-transform: uppercase;
   word-break: break-word;
+}
+
+@media only screen and (min-width: 379px) {
+  .subheading {
+    padding: 20px;
+    font-size: 1.6em;
+  }
 }
 
 .subheading-cat-accessories {

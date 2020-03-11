@@ -11,7 +11,7 @@
         <div class="product-wrapper">
           <div class="product-container">
             <div v-if="product.data.product.premium_icon"><img v-if="product.data.product.premium_icon['value']" src="https://onlinedatabasetool.com/template-assets/img/icon-premium.png" class="icon-premium"></div>
-            <h1>{{ product.data.product.product_title_line_1_accessories['value'] }} <span v-if="product.data.product.product_title_line_2_accessories">- {{ product.data.product.product_title_line_2_accessories['value'] }}</span></h1>
+            <h1>{{ product.data.product.product_title_line_1_accessories['value'] }} <span v-if="product.data.product.product_title_line_2_accessories['value']">- {{ product.data.product.product_title_line_2_accessories['value'] }}</span></h1>
             <p>{{ product.data.product.product_description['value'] }}</p>
 
             <div class="product-img-wrapper">
@@ -30,8 +30,8 @@
 
             <div class="meta">
               <p><strong>{{ product.data.product.amount_packaging['label'] }}</strong> {{ product.data.product.amount_packaging['value'] }}<br>
-              <span v-if="countryCode === 'DEAT'"><span v-if="product.data.product.suggested_retail_price_1['label']"><strong>{{ product.data.product.suggested_retail_price_1['label'] }}</strong> {{ product.data.product.suggested_retail_price_1['value'] }}<span v-if="product.data.product.asterisks_after_suggested_retail_price['value']">{{ product.data.product.asterisks_after_suggested_retail_price['value'] }}</span></span><br></span>
-              <span v-if="countryCode === 'DEAT'"><span v-if="product.data.product.suggested_retail_price_2['label']"><strong>{{ product.data.product.suggested_retail_price_2['label'] }}</strong> {{ product.data.product.suggested_retail_price_2['value'] }}</span></span></p>
+              <span v-if="countryCode === 'DEAT'"><span v-if="product.data.product.suggested_retail_price_1['label']"><strong>{{ product.data.product.suggested_retail_price_1['label'] }}</strong> {{ product.data.product.suggested_retail_price_1['value'] }} {{ product.data.product.currency_symbol_1['value'] }}<span v-if="product.data.product.asterisks_after_suggested_retail_price['value']">{{ product.data.product.asterisks_after_suggested_retail_price['value'] }}</span></span><br></span>
+              <span v-if="countryCode === 'DEAT'"><span v-if="product.data.product.suggested_retail_price_2['label']"><span v-if="product.data.product.suggested_retail_price_2['value']"><strong>{{ product.data.product.suggested_retail_price_2['label'] }}</strong> {{ product.data.product.suggested_retail_price_2['value'] }} {{ product.data.product.currency_symbol_2['value'] }}</span></span></span></p>
             </div>
 
             <div v-if="countryCode === 'DEAT'" class="legal">
