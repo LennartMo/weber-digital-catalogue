@@ -11,7 +11,7 @@
         <div class="product-wrapper">
           <div class="product-container">
             <div v-if="product.data.product.premium_icon"><img v-if="product.data.product.premium_icon['value']" src="https://onlinedatabasetool.com/template-assets/img/icon-premium.png" class="icon-premium"></div>
-            <h1>{{ product.data.product.product_title_line_1_accessories['value'] }} <span v-if="product.data.product.product_title_line_2_accessories['value']">- {{ product.data.product.product_title_line_2_accessories['value'] }}</span></h1>
+            <h1>{{ product.data.product.product_title_line_1_accessories['value'] }} <span v-if="product.data.product.product_title_line_2_accessories"> {{ product.data.product.product_title_line_2_accessories['value'] }}</span></h1>
             <p>{{ product.data.product.product_description['value'] }}</p>
 
             <div class="product-img-wrapper">
@@ -34,7 +34,7 @@
               <span v-if="countryCode === 'DEAT'"><span v-if="product.data.product.suggested_retail_price_2['label']"><span v-if="product.data.product.suggested_retail_price_2['value']"><strong>{{ product.data.product.suggested_retail_price_2['label'] }}</strong> {{ product.data.product.suggested_retail_price_2['value'] }} {{ product.data.product.currency_symbol_2['value'] }}</span></span></span></p>
             </div>
 
-            <div v-if="countryCode === 'DEAT'" class="legal">
+            <div class="legal">
               <p><span v-if="product.data.product.additional_product_legal_text_1">{{ product.data.product.additional_product_legal_text_1['value'] }}<br></span>
               <span v-if="product.data.product.additional_product_legal_text_2">{{ product.data.product.additional_product_legal_text_2['value'] }}</span></p>
             </div>

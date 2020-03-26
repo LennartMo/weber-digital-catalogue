@@ -11,7 +11,7 @@
           <router-link :to="{ path: '/' + countryCode + '/' + catalogType + '/acc/' + categoryName + '/' + item.id }" class="products-overview-single" v-if="item.type === 'PRODUCT'">
             <img :src="'https://onlinedatabasetool.com/template-assets/img/accessoires/' + item.product.article_number_1['value'] + '.jpg'">
             <div class="product-single-text">
-              {{ item.product.product_title_line_1_accessories['value'] }} <span v-if="item.product.product_title_line_2_accessories['value']">- {{ item.product.product_title_line_2_accessories['value'] }}</span>
+              {{ item.product.product_title_line_1_accessories['value'] }} <span v-if="item.product.product_title_line_2_accessories"><span v-if="item.product.product_title_line_2_accessories['value']">- {{ item.product.product_title_line_2_accessories['value'] }}</span></span>
             </div>
           </router-link>
 
