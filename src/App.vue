@@ -34,6 +34,7 @@
         </header>
       </div>
     </div>
+    <div class="loading-new"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
     <div class="loading" v-if="loading">{{ loading }}</div>
     <router-view></router-view>
   </div>
